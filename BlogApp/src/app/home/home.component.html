@@ -1,0 +1,16 @@
+<div class="container" style="display: flex; flex-wrap: wrap;">
+    <div *ngFor="let blog of blogs" class="card col-4" style=" margin: 20px 50px;">
+        <div class="card-body" style="text-align: center;">
+            <img  class="img-fluid" style="height: 200px;" src="{{blog.image_url}}" alt="Image Not Found"><br>
+            <span>Title : {{blog.blog_title}}</span> <br>
+            <hr>
+            {{blog.blog_description}} <br>
+            <div *ngIf="blog.blog_comments!=null">
+                Comments :
+            <div *ngFor="let comment of blog.blog_comments">
+                   {{comment}}<br>
+            </div>
+        </div>
+         <button type="button" class="btn btn-primary" style="margin-top: 5px;"(click)="comment(blog.blog_title,blog.blogger_email)">Comment</button> 
+    </div>
+</div>

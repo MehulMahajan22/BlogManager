@@ -1,0 +1,22 @@
+<div class="container">
+    <h2 style="text-align: center;">Add Blog</h2>
+    <form class="example-form" [formGroup]="addBlogForm" (ngSubmit)="addBlog()">
+
+        <mat-form-field class="example-full-width">
+            <mat-label>Blog Title</mat-label>
+            <input matInput placeholder="Your Name" formControlName="blog_title" required="true">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+            <mat-label>Blog Description</mat-label>
+            <input matInput formControlName="blog_description" required="true">
+        </mat-form-field>       
+
+        <mat-form-field class="example-full-width">
+            <mat-label>Blog Image</mat-label>
+            <input matInput formControlName="image_url" required="true">
+        </mat-form-field>
+        
+        <button type="submit" class="btn btn-primary">Add Blog</button>           
+    </form>
+</div>

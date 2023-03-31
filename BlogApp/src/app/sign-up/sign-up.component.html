@@ -1,0 +1,63 @@
+<div class="container">
+    <h2 style="text-align: center;">Register</h2>
+    <form class="example-form" [formGroup]="signUpForm" (ngSubmit)="signUp()">
+
+        <mat-form-field class="example-full-width">
+            <mat-label>Full Name</mat-label>
+            <input matInput placeholder="Your Name" formControlName="user_name" required="true">
+            <code class="code" *ngIf="name?.invalid && (name?.dirty || name?.touched)" >
+                <code *ngIf="name?.errors?.['required']">
+                Name is required.
+               </code>
+            </code>   
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+            <mat-label>Email</mat-label>
+            <input matInput formControlName="user_email">
+            <code class="code" *ngIf="email?.invalid && (email?.dirty || email?.touched)" >
+                <code *ngIf="email?.errors?.['required']">
+                Email is required
+               </code>
+            </code>   
+            <code class="code" *ngIf="email?.invalid && (email?.dirty || email?.touched)" >
+                <code *ngIf="email?.errors?.['email']">
+                Email is in incorrect Format
+               </code>
+            </code>   
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+            <mat-label>Password</mat-label>
+            <input type="email" matInput formControlName="user_password" type="password" required="true">
+            <code class="code" *ngIf="password?.invalid && (password?.dirty || password?.touched)" >
+                <code *ngIf="password?.errors?.['required']">
+                Password is required
+               </code>
+            </code>   
+            <code class="code" *ngIf="password?.invalid && (password?.dirty || password?.touched)" >
+                <code *ngIf="password?.errors?.['pattern']">
+                Password must be of 8-20 alphabets
+               </code>
+            </code>   
+        </mat-form-field>
+       
+
+        <mat-form-field class="example-full-width">
+            <mat-label>Contact Number</mat-label>
+            <input matInput formControlName="user_contact" required="true">
+            <code class="code" *ngIf="contact?.invalid && (contact?.dirty || contact?.touched)" >
+                <code *ngIf="contact?.errors?.['required']">
+                Contact Number is required
+               </code>
+            </code>   
+            <code class="code" *ngIf="contact?.invalid && (contact?.dirty || contact?.touched)" >
+                <code *ngIf="contact?.errors?.['pattern']">
+                Inavlid format
+               </code>
+            </code>   
+        </mat-form-field>
+        
+        <button type="submit" class="btn btn-primary" [disabled]="signUpForm.invalid">Sign Up</button>           
+    </form>
+</div>

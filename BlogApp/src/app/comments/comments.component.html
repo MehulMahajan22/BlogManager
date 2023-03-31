@@ -1,0 +1,24 @@
+<div class="container-fluid" style="text-align: center;">
+    <div class="card" style=" margin: 20px 50px;">
+        <div class="card-body" style="text-align: center;">
+            <img  class="img-fluid" style="height: 200px;" src="{{blog.image_url}}" alt="Image Not Found"><br>
+            <span>Title : {{blog.blog_title}}</span> <br>
+            <hr>
+            {{blog.blog_description}} <br>
+            <div *ngIf="blog.blog_comments!=null">
+                Comments :
+            <div *ngFor="let c of blog.blog_comments">
+                 {{c}} <br>
+            </div>
+            </div> 
+        </div>
+        <h2 style="text-align: center;">Add Comment</h2>
+        <form class="example-form" [formGroup]="commentForm" (ngSubmit)="submitComments()" >
+            <mat-form-field class="example-full-width" style="width: 600px;">
+                <mat-label>Comment</mat-label>
+                <textarea matInput formControlName="comment" ></textarea>
+            </mat-form-field> <br>
+            <button type="submit" class="btn btn-primary" style="margin-bottom: 10px;"[disabled]="!commentForm.value.comment">Add Comment</button>           
+        </form>
+    </div>
+</div>

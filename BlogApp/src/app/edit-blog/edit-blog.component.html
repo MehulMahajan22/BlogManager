@@ -1,0 +1,22 @@
+<div class="container">
+    <h2 style="text-align: center;">Edit Blog</h2>
+    <form class="example-form">
+
+        <mat-form-field class="example-full-width">
+            <mat-label>Blog Title</mat-label>
+            <input matInput [(ngModel)]="blog.blog_title" value={{blog.blog_title}} name="blog.blog_title" disabled>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+            <mat-label>Blog Description</mat-label>
+            <input matInput [(ngModel)]="blog.blog_description" value={{blog.blog_description}} required="true" name="blog.blog_description">
+        </mat-form-field>       
+
+        <mat-form-field class="example-full-width">
+            <mat-label>Blog Image</mat-label>
+            <input matInput [(ngModel)]="blog.image_url" value={{blog.image_url}} required="true" name="blog.image_url">
+        </mat-form-field>
+        
+        <button type="submit" class="btn btn-primary" (click)="submitEditForm()">Save Blog</button>           
+    </form>
+</div>
